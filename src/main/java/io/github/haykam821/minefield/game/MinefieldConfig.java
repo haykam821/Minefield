@@ -18,7 +18,7 @@ public class MinefieldConfig {
 			Codec.INT.optionalFieldOf("guide_ticks", 20 * 30).forGetter(MinefieldConfig::getGuideTicks),
 			Codec.INT.optionalFieldOf("end_ticks", 20 * 5).forGetter(MinefieldConfig::getEndTicks),
 			Codec.BOOL.optionalFieldOf("remove_exploded_pressure_plates", true).forGetter(MinefieldConfig::shouldRemoveExplodedPressurePlates),
-			Codec.STRING.optionalFieldOf("statistic_bundle_namespace").forGetter(MinefieldConfig::getStatisticBundleNamespace)
+			GameStatisticBundle.NAMESPACE_CODEC.optionalFieldOf("statistic_bundle_namespace").forGetter(MinefieldConfig::getStatisticBundleNamespace)
 		).apply(instance, MinefieldConfig::new);
 	});
 
