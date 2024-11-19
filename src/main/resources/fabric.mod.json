@@ -22,6 +22,8 @@
 	"license": "MIT",
 	"icon": "assets/minefield/icon.png",
 	"depends": {
-		"fabricloader": ">=0.5.22"
+		"fabricloader": ">=0.5.22",
+		"java": ">=21",
+		"plasmid": ">=0.6.0"
 	}
 }

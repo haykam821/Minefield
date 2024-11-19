@@ -1,5 +1,7 @@
 package io.github.haykam821.minefield.game.map;
 
+import java.util.Set;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.server.MinecraftServer;
@@ -11,7 +13,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import xyz.nucleoid.map_templates.BlockBounds;
 import xyz.nucleoid.map_templates.MapTemplate;
-import xyz.nucleoid.plasmid.game.world.generator.TemplateChunkGenerator;
+import xyz.nucleoid.plasmid.api.game.world.generator.TemplateChunkGenerator;
 
 public class MinefieldMap {
 	private static final BlockState AIR = Blocks.AIR.getDefaultState();
@@ -73,7 +75,7 @@ public class MinefieldMap {
 	}
 
 	public void spawn(ServerPlayerEntity player, ServerWorld world) {
-		player.teleport(world, this.spawnPos.getX(), this.spawnPos.getY(), this.spawnPos.getZ(), -90, 0);
+		player.teleport(world, this.spawnPos.getX(), this.spawnPos.getY(), this.spawnPos.getZ(), Set.of(), -90, 0, true);
 	}
 
 	public boolean isAtEnd(ServerPlayerEntity player) {
