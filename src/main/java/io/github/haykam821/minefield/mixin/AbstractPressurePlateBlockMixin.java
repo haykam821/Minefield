@@ -16,8 +16,8 @@ import xyz.nucleoid.stimuli.Stimuli;
 
 @Mixin(AbstractPressurePlateBlock.class)
 public class AbstractPressurePlateBlockMixin {
-	@Inject(method = "updatePlateState", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;emitGameEvent(Lnet/minecraft/entity/Entity;Lnet/minecraft/world/event/GameEvent;Lnet/minecraft/util/math/BlockPos;)V", ordinal = 1))
-	private void invokeAfterBlockPlaceListeners(Entity entity, World world, BlockPos pos, BlockState state, int power, CallbackInfo ci) {
+	@Inject(method = "updatePlateState", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;emitGameEvent(Lnet/minecraft/entity/Entity;Lnet/minecraft/registry/entry/RegistryEntry;Lnet/minecraft/util/math/BlockPos;)V", ordinal = 1))
+	private void invokePressPressurePlateListeners(Entity entity, World world, BlockPos pos, BlockState state, int power, CallbackInfo ci) {
 		if (world.isClient()) return;
 
 		try (EventInvokers invokers = Stimuli.select().forEntityAt(entity, pos)) {
